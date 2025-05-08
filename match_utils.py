@@ -7,7 +7,7 @@ from tempfile import NamedTemporaryFile
 template_path = "static/mickey_template.png"
 mickey_template = cv2.imread(template_path, 0)
 mickey_template = cv2.threshold(mickey_template, 127, 255, cv2.THRESH_BINARY)[1]
-_, template_contours, _ = cv2.findContours(mickey_template, cv2.RETR_EXTERNAL, cv2.CHAIN_APPROX_SIMPLE)
+template_contours, _ = cv2.findContours(mickey_template, cv2.RETR_EXTERNAL, cv2.CHAIN_APPROX_SIMPLE)
 
 def match_mickey(uploaded_file):
     with NamedTemporaryFile(delete=False, suffix=".jpg") as tmp:
